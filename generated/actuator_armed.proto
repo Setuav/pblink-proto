@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message ActuatorArmed {
+uint64 timestamp = 1;
+bool armed = 2;
+bool prearmed = 3;
+bool ready_to_arm = 4;
+bool lockdown = 5;
+bool kill = 6;
+bool termination = 7;
+bool in_esc_calibration_mode = 8;
+
+}

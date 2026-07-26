@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message SensorCombined {
+uint64 timestamp = 1;
+repeated float gyro_rad = 2 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+uint32 gyro_integral_dt = 3;
+repeated float accelerometer_m_s2 = 4 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+uint32 accelerometer_integral_dt = 5;
+uint32 accelerometer_clipping = 6;
+uint32 gyro_clipping = 7;
+uint32 accel_calibration_count = 8;
+uint32 gyro_calibration_count = 9;
+
+}

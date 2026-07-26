@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message OffboardControlMode {
+uint64 timestamp = 1;
+bool position = 2;
+bool velocity = 3;
+bool acceleration = 4;
+bool attitude = 5;
+bool body_rate = 6;
+bool thrust_and_torque = 7;
+bool direct_actuator = 8;
+
+}

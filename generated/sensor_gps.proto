@@ -1,0 +1,49 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message SensorGps {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+uint32 device_id = 3;
+double latitude_deg = 4;
+double longitude_deg = 5;
+double altitude_msl_m = 6;
+double altitude_ellipsoid_m = 7;
+float s_variance_m_s = 8;
+float c_variance_rad = 9;
+uint32 fix_type = 10;
+float eph = 11;
+float epv = 12;
+float hdop = 13;
+float vdop = 14;
+int32 noise_per_ms = 15;
+uint32 automatic_gain_control = 16;
+uint32 jamming_state = 17;
+int32 jamming_indicator = 18;
+uint32 spoofing_state = 19;
+uint32 authentication_state = 20;
+float vel_m_s = 21;
+float vel_n_m_s = 22;
+float vel_e_m_s = 23;
+float vel_d_m_s = 24;
+float cog_rad = 25;
+bool vel_ned_valid = 26;
+uint64 time_utc_usec = 27;
+uint32 satellites_used = 28;
+uint32 system_error = 29;
+float heading = 30;
+float heading_offset = 31;
+float heading_accuracy = 32;
+float rtcm_injection_rate = 33;
+uint32 selected_rtcm_instance = 34;
+bool rtcm_crc_failed = 35;
+uint32 rtcm_msg_used = 36;
+float antenna_offset_x = 37;
+float antenna_offset_y = 38;
+float antenna_offset_z = 39;
+
+}

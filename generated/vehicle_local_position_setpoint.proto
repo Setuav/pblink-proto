@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleLocalPositionSetpoint {
+uint64 timestamp = 1;
+float x = 2;
+float y = 3;
+float z = 4;
+float vx = 5;
+float vy = 6;
+float vz = 7;
+repeated float acceleration = 8 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+repeated float thrust = 9 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+float yaw = 10;
+float yawspeed = 11;
+
+}

@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message ActuatorOutputs {
+uint64 timestamp = 1;
+uint32 noutputs = 2;
+repeated float output = 3 [(nanopb).max_count = 16, (nanopb).fixed_count = true];
+
+}

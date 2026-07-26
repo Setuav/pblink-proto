@@ -1,0 +1,48 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message EstimatorStatus {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+repeated float output_tracking_error = 3 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+uint32 gps_check_fail_flags = 4;
+uint64 control_mode_flags = 5;
+uint32 filter_fault_flags = 6;
+float pos_horiz_accuracy = 7;
+float pos_vert_accuracy = 8;
+float hdg_test_ratio = 9;
+float vel_test_ratio = 10;
+float pos_test_ratio = 11;
+float hgt_test_ratio = 12;
+float tas_test_ratio = 13;
+float hagl_test_ratio = 14;
+float beta_test_ratio = 15;
+uint32 solution_status_flags = 16;
+uint32 reset_count_vel_ne = 17;
+uint32 reset_count_vel_d = 18;
+uint32 reset_count_pos_ne = 19;
+uint32 reset_count_pod_d = 20;
+uint32 reset_count_quat = 21;
+float time_slip = 22;
+bool pre_flt_fail_innov_heading = 23;
+bool pre_flt_fail_innov_height = 24;
+bool pre_flt_fail_innov_pos_horiz = 25;
+bool pre_flt_fail_innov_vel_horiz = 26;
+bool pre_flt_fail_innov_vel_vert = 27;
+bool pre_flt_fail_mag_field_disturbed = 28;
+uint32 accel_device_id = 29;
+uint32 gyro_device_id = 30;
+uint32 baro_device_id = 31;
+uint32 mag_device_id = 32;
+uint32 health_flags = 33;
+uint32 timeout_flags = 34;
+float mag_inclination_deg = 35;
+float mag_inclination_ref_deg = 36;
+float mag_strength_gs = 37;
+float mag_strength_ref_gs = 38;
+
+}
