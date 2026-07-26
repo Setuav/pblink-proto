@@ -223,17 +223,6 @@ topics:
     description: "PX4 Events (for logging/status)"
 
 
-  # Discovery and system
-
-  - name: topic_info
-    msg_type_id: 0x13
-    direction: uplink
-    rate_hz: 0.1
-    msg_file: TopicInfo.msg
-    internal: true
-    description: "Topic metadata for discovery"
-
-
   # Parameter management
 
   - name: parameter_value
