@@ -248,3 +248,20 @@ topics:
     msg_file: ParameterSet.msg
     internal: true
     description: "Request to set a parameter"
+
+  # Discovery RPCs
+
+  - name: topic_list_response
+    msg_type_id: 0x16
+    direction: uplink
+    rate_hz: 0
+    internal: true
+    description: "Response containing list of available topics and rates"
+
+  - name: topic_list_request
+    msg_type_id: 0x8F
+    direction: downlink
+    rate_hz: 0
+    internal: true
+    description: "Request list of available topics and rates"
+

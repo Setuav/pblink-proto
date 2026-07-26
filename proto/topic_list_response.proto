@@ -10,5 +10,6 @@ message TopicEntry {
 
 message TopicListResponse {
   uint64 timestamp = 1;
-  repeated TopicEntry topics = 2;
+  uint32 request_id = 2;
+  repeated TopicEntry topics = 3;
 }
