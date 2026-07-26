@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message LinkStatusResponse {
+  uint64 timestamp = 1;
+  uint32 request_id = 2;
+  uint32 tx_bytes_sec = 3;
+  uint32 rx_bytes_sec = 4;
+  uint64 tx_total_bytes = 5;
+  uint64 rx_total_bytes = 6;
+  uint32 tx_message_count = 7;
+  uint32 rx_message_count = 8;
+  uint32 tx_error_count = 9;
+  uint32 rx_error_count = 10;
+  uint32 active_topic_count = 11;
+}

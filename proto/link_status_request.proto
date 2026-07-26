@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message LinkStatusRequest {
+  uint64 timestamp = 1;
+  uint32 request_id = 2;
+}

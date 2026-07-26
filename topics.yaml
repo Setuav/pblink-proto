@@ -265,3 +265,20 @@ topics:
     internal: true
     description: "Request list of available topics and rates"
 
+  # Link telemetry RPCs
+
+  - name: link_status_response
+    msg_type_id: 0x17
+    direction: uplink
+    rate_hz: 0
+    internal: true
+    description: "Link performance and error telemetry response"
+
+  - name: link_status_request
+    msg_type_id: 0x90
+    direction: downlink
+    rate_hz: 0
+    internal: true
+    description: "Request link performance and error telemetry"
+
+
