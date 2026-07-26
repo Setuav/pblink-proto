@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message RegisterExtComponentRequest {
+uint64 timestamp = 1;
+uint64 request_id = 2;
+
+    string name = 3 [(nanopb).max_size = 25];
+uint32 px4_ros2_api_version = 4;
+bool register_arming_check = 5;
+bool register_mode = 6;
+bool register_mode_executor = 7;
+bool enable_replace_internal_mode = 8;
+uint32 replace_internal_mode = 9;
+bool activate_mode_immediately = 10;
+bool not_user_selectable = 11;
+bool request_offboard_setpoints = 12;
+
+}

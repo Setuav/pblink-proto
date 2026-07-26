@@ -1,0 +1,15 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleAttitude {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+repeated float q = 3 [(nanopb).max_count = 4, (nanopb).fixed_count = true];
+repeated float delta_q_reset = 4 [(nanopb).max_count = 4, (nanopb).fixed_count = true];
+uint32 quat_reset_counter = 5;
+
+}

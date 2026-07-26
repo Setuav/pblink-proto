@@ -1,0 +1,15 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message Event {
+uint64 timestamp = 1;
+uint32 id = 2;
+uint32 event_sequence = 3;
+repeated uint32 arguments = 4 [(nanopb).max_count = 25, (nanopb).fixed_count = true];
+uint32 log_levels = 5;
+
+}

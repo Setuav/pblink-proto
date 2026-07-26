@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleAngularVelocity {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+repeated float xyz = 3 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+repeated float xyz_derivative = 4 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+
+}

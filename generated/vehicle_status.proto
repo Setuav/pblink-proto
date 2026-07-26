@@ -1,0 +1,50 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleStatus {
+uint64 timestamp = 1;
+uint64 armed_time = 2;
+uint64 takeoff_time = 3;
+uint32 arming_state = 4;
+uint32 latest_arming_reason = 5;
+uint32 latest_disarming_reason = 6;
+uint64 nav_state_timestamp = 7;
+uint32 nav_state_user_intention = 8;
+uint32 nav_state = 9;
+uint32 nav_state_display = 10;
+bool accepts_offboard_setpoints = 11;
+uint32 valid_nav_states_mask = 12;
+uint32 can_set_nav_states_mask = 13;
+uint32 hil_state = 14;
+uint32 vehicle_type = 15;
+bool failsafe = 16;
+bool failsafe_and_user_took_over = 17;
+uint32 failsafe_defer_state = 18;
+bool gcs_connection_lost = 19;
+uint32 gcs_connection_lost_counter = 20;
+bool high_latency_data_link_lost = 21;
+bool is_vtol = 22;
+bool is_vtol_tailsitter = 23;
+bool in_transition_mode = 24;
+bool in_transition_to_fw = 25;
+uint32 system_type = 26;
+uint32 system_id = 27;
+uint32 component_id = 28;
+bool safety_button_available = 29;
+bool safety_off = 30;
+bool power_input_valid = 31;
+bool usb_connected = 32;
+bool open_drone_id_system_present = 33;
+bool open_drone_id_system_healthy = 34;
+bool parachute_system_present = 35;
+bool parachute_system_healthy = 36;
+bool traffic_avoidance_system_present = 37;
+bool rc_calibration_in_progress = 38;
+bool calibration_enabled = 39;
+bool pre_flight_checks_pass = 40;
+
+}

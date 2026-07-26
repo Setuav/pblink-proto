@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message ArmingCheckRequest {
+uint64 timestamp = 1;
+uint32 request_id = 2;
+uint32 valid_registrations_mask = 3;
+
+}

@@ -1,0 +1,27 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message ManualControlSetpoint {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+bool valid = 3;
+uint32 data_source = 4;
+float roll = 5;
+float pitch = 6;
+float yaw = 7;
+float throttle = 8;
+float flaps = 9;
+float aux1 = 10;
+float aux2 = 11;
+float aux3 = 12;
+float aux4 = 13;
+float aux5 = 14;
+float aux6 = 15;
+bool sticks_moving = 16;
+uint32 buttons = 17;
+
+}

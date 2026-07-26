@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message TrajectorySetpoint {
+uint64 timestamp = 1;
+repeated float position = 2 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+repeated float velocity = 3 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+repeated float acceleration = 4 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+repeated float jerk = 5 [(nanopb).max_count = 3, (nanopb).fixed_count = true];
+float yaw = 6;
+float yawspeed = 7;
+
+}

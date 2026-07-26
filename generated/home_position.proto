@@ -1,0 +1,26 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message HomePosition {
+uint64 timestamp = 1;
+double lat = 2;
+double lon = 3;
+float alt = 4;
+float x = 5;
+float y = 6;
+float z = 7;
+float roll = 8;
+float pitch = 9;
+float yaw = 10;
+bool valid_alt = 11;
+bool valid_hpos = 12;
+bool valid_lpos = 13;
+bool valid_attitude = 14;
+bool manual_home = 15;
+uint32 update_count = 16;
+
+}

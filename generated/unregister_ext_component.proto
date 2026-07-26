@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message UnregisterExtComponent {
+uint64 timestamp = 1;
+
+    string name = 2 [(nanopb).max_size = 25];
+int32 arming_check_id = 3;
+int32 mode_id = 4;
+int32 mode_executor_id = 5;
+
+}

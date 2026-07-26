@@ -1,0 +1,48 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message BatteryStatus {
+uint64 timestamp = 1;
+bool connected = 2;
+float voltage_v = 3;
+float current_a = 4;
+float current_average_a = 5;
+float discharged_mah = 6;
+float remaining = 7;
+float scale = 8;
+float time_remaining_s = 9;
+float temperature = 10;
+uint32 cell_count = 11;
+uint32 source = 12;
+uint32 priority = 13;
+uint32 capacity = 14;
+uint32 cycle_count = 15;
+uint32 average_time_to_empty = 16;
+uint32 manufacture_date = 17;
+uint32 state_of_health = 18;
+uint32 max_error = 19;
+uint32 id = 20;
+uint32 interface_error = 21;
+repeated float voltage_cell_v = 22 [(nanopb).max_count = 14, (nanopb).fixed_count = true];
+float max_cell_voltage_delta = 23;
+bool is_powering_off = 24;
+bool is_required = 25;
+uint32 warning = 26;
+uint32 faults = 27;
+float full_charge_capacity_wh = 28;
+float remaining_capacity_wh = 29;
+uint32 over_discharge_count = 30;
+float nominal_voltage = 31;
+float internal_resistance_estimate = 32;
+float ocv_estimate = 33;
+float ocv_estimate_filtered = 34;
+float volt_based_soc_estimate = 35;
+float voltage_prediction = 36;
+float prediction_error = 37;
+float estimation_covariance_norm = 38;
+
+}

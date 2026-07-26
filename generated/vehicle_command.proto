@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleCommand {
+uint64 timestamp = 1;
+float param1 = 2;
+float param2 = 3;
+float param3 = 4;
+float param4 = 5;
+double param5 = 6;
+double param6 = 7;
+float param7 = 8;
+uint32 command = 9;
+uint32 target_system = 10;
+uint32 target_component = 11;
+uint32 source_system = 12;
+uint32 source_component = 13;
+uint32 confirmation = 14;
+bool from_external = 15;
+
+}

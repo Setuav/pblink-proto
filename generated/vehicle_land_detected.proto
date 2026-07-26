@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleLandDetected {
+uint64 timestamp = 1;
+bool freefall = 2;
+bool ground_contact = 3;
+bool maybe_landed = 4;
+bool landed = 5;
+bool in_ground_effect = 6;
+bool in_descend = 7;
+bool has_low_throttle = 8;
+bool vertical_movement = 9;
+bool horizontal_movement = 10;
+bool rotational_movement = 11;
+bool close_to_ground_or_skipped_check = 12;
+bool at_rest = 13;
+
+}

@@ -1,0 +1,63 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleLocalPosition {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+bool xy_valid = 3;
+bool z_valid = 4;
+bool v_xy_valid = 5;
+bool v_z_valid = 6;
+float x = 7;
+float y = 8;
+float z = 9;
+repeated float delta_xy = 10 [(nanopb).max_count = 2, (nanopb).fixed_count = true];
+uint32 xy_reset_counter = 11;
+float delta_z = 12;
+uint32 z_reset_counter = 13;
+float vx = 14;
+float vy = 15;
+float vz = 16;
+float z_deriv = 17;
+repeated float delta_vxy = 18 [(nanopb).max_count = 2, (nanopb).fixed_count = true];
+uint32 vxy_reset_counter = 19;
+float delta_vz = 20;
+uint32 vz_reset_counter = 21;
+float ax = 22;
+float ay = 23;
+float az = 24;
+float heading = 25;
+float heading_var = 26;
+float unaided_heading = 27;
+float delta_heading = 28;
+uint32 heading_reset_counter = 29;
+bool heading_good_for_control = 30;
+float tilt_var = 31;
+bool xy_global = 32;
+bool z_global = 33;
+uint64 ref_timestamp = 34;
+double ref_lat = 35;
+double ref_lon = 36;
+float ref_alt = 37;
+bool dist_bottom_valid = 38;
+float dist_bottom = 39;
+float dist_bottom_var = 40;
+float delta_dist_bottom = 41;
+uint32 dist_bottom_reset_counter = 42;
+uint32 dist_bottom_sensor_bitfield = 43;
+float eph = 44;
+float epv = 45;
+float evh = 46;
+float evv = 47;
+bool dead_reckoning = 48;
+float vxy_max = 49;
+float vz_max = 50;
+float hagl_min = 51;
+float hagl_max_z = 52;
+float hagl_max_xy = 53;
+
+}

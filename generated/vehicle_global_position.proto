@@ -1,0 +1,28 @@
+
+syntax = "proto3";
+
+import "nanopb.proto";
+
+package px4_pblink.msgs;
+
+message VehicleGlobalPosition {
+uint64 timestamp = 1;
+uint64 timestamp_sample = 2;
+double lat = 3;
+double lon = 4;
+float alt = 5;
+float alt_ellipsoid = 6;
+bool lat_lon_valid = 7;
+bool alt_valid = 8;
+float delta_alt = 9;
+float delta_terrain = 10;
+uint32 lat_lon_reset_counter = 11;
+uint32 alt_reset_counter = 12;
+uint32 terrain_reset_counter = 13;
+float eph = 14;
+float epv = 15;
+float terrain_alt = 16;
+bool terrain_alt_valid = 17;
+bool dead_reckoning = 18;
+
+}
