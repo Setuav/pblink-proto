@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message ParameterValue {
+  uint64 timestamp = 1;
+  string param_name = 2;
+  float value_float = 3;
+  int32 value_int = 4;
+  uint32 param_type = 5;
+  uint32 param_count = 6;
+  uint32 param_index = 7;
+  uint32 request_id = 8;
+  bool success = 9;
+}

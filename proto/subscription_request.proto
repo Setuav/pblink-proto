@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message SubscriptionRequest {
+  uint64 timestamp = 1;
+  uint32 msg_type_id = 2;
+  uint32 interval_us = 3;
+}

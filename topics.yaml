@@ -1,0 +1,261 @@
+# msg_type_id ranges: uplink 0x01-0x7F, downlink/internal 0x80-0xFF.
+# rate_hz=0 disables an uplink topic. Downlink-only topics ignore the rate.
+# Bidirectional topics use uplink/downlink rates.
+
+package: px4_pblink.msgs
+
+topics:
+  # Telemetry and state
+
+  - name: vehicle_local_position
+    msg_type_id: 0x01
+    direction: uplink
+    rate_hz: 20
+    description: "Position and velocity in local NED frame"
+
+  - name: vehicle_status
+    msg_type_id: 0x02
+    direction: uplink
+    rate_hz: 2
+    description: "Arming state, navigation state, failsafe status"
+
+  - name: vehicle_attitude
+    msg_type_id: 0x03
+    direction: uplink
+    rate_hz: 50
+    description: "Quaternion orientation"
+
+  - name: vehicle_global_position
+    msg_type_id: 0x04
+    direction: uplink
+    rate_hz: 5
+    description: "GPS coordinates (lat, lon, alt)"
+
+  - name: battery_status
+    msg_type_id: 0x05
+    direction: uplink
+    rate_hz: 1
+    description: "Battery voltage, current, remaining capacity"
+
+  - name: vehicle_land_detected
+    msg_type_id: 0x06
+    direction: uplink
+    rate_hz: 2
+    description: "Land detection status"
+
+  - name: home_position
+    msg_type_id: 0x07
+    direction: uplink
+    rate_hz: 0.2
+    description: "Home position coordinates"
+
+  - name: vehicle_command_ack
+    msg_type_id: 0x08
+    direction: uplink
+    rate_hz: 5
+    description: "Command acknowledgement response"
+
+  - name: sensor_combined
+    msg_type_id: 0x09
+    direction: uplink
+    rate_hz: 50
+    description: "IMU data: gyro, accel, magnetometer"
+
+  - name: sensor_gps
+    msg_type_id: 0x0A
+    direction: uplink
+    rate_hz: 5
+    description: "GPS raw data (GNSS position, velocity, accuracy)"
+
+  - name: vehicle_angular_velocity
+    msg_type_id: 0x0B
+    direction: uplink
+    rate_hz: 50
+    description: "Body angular velocity from gyroscope"
+
+  - name: vehicle_acceleration
+    msg_type_id: 0x0C
+    direction: uplink
+    rate_hz: 50
+    description: "Body acceleration from accelerometer"
+
+  - name: estimator_status
+    msg_type_id: 0x0D
+    direction: uplink
+    rate_hz: 5
+    description: "EKF health and status flags"
+
+  - name: vehicle_odometry
+    msg_type_id: 0x0E
+    direction: uplink
+    rate_hz: 30
+    description: "Visual-inertial odometry (VIO/VSLAM)"
+
+  - name: actuator_outputs
+    msg_type_id: 0x0F
+    direction: uplink
+    rate_hz: 20
+    description: "Motor/servo PWM outputs"
+
+  - name: actuator_armed
+    msg_type_id: 0x10
+    direction: uplink
+    rate_hz: 2
+    description: "Armed/disarmed status and ready to fly"
+
+  # Control and commands
+
+  - name: subscription_request
+    msg_type_id: 0x8B
+    direction: downlink
+    rate_hz: 0
+    msg_file: SubscriptionRequest.msg
+    internal: true
+    description: "Request to change uplink topic rate (0=off)"
+
+  - name: time_sync
+    msg_type_id: 0x8E
+    direction: both
+    uplink_rate_hz: 1
+    downlink_rate_hz: 0
+    msg_file: TimeSync.msg
+    internal: true
+    description: "Clock synchronization using companion tc1 and PX4 ts1 timestamps"
+
+  - name: offboard_control_mode
+    msg_type_id: 0x80
+    direction: downlink
+    rate_hz: 0
+    description: "Offboard control mode flags"
+
+  - name: vehicle_command
+    msg_type_id: 0x82
+    direction: downlink
+    rate_hz: 0
+    description: "Commands: arm, disarm, takeoff, land, mode change"
+
+  - name: manual_control_setpoint
+    msg_type_id: 0x83
+    direction: downlink
+    rate_hz: 0
+    description: "RC/joystick override from companion"
+
+  # Bidirectional
+
+  - name: trajectory_setpoint
+    msg_type_id: 0x81
+    direction: both
+    uplink_rate_hz: 10
+    downlink_rate_hz: 0
+    description: "Position/velocity/acceleration setpoints (bidirectional)"
+
+  # External flight mode support
+  - name: register_ext_component_request
+    msg_type_id: 0x84
+    direction: downlink
+    rate_hz: 0
+    msg_file: RegisterExtComponentRequest.msg
+    description: "Request to register external component/mode"
+
+  - name: register_ext_component_reply
+    msg_type_id: 0x11
+    direction: uplink
+    rate_hz: 1
+    msg_file: RegisterExtComponentReply.msg
+    description: "Reply to registration request"
+
+  - name: unregister_ext_component
+    msg_type_id: 0x85
+    direction: downlink
+    rate_hz: 0
+    msg_file: UnregisterExtComponent.msg
+    description: "Unregister external component/mode"
+
+  - name: arming_check_request
+    msg_type_id: 0x12
+    direction: uplink
+    rate_hz: 1
+    msg_file: ArmingCheckRequest.msg
+    description: "Request for arming check status"
+
+  - name: arming_check_reply
+    msg_type_id: 0x8A
+    direction: downlink
+    rate_hz: 0
+    msg_file: ArmingCheckReply.msg
+    description: "Reply to arming check request"
+
+  - name: onboard_computer_status
+    msg_type_id: 0x86
+    direction: downlink
+    rate_hz: 0
+    msg_file: OnboardComputerStatus.msg
+    description: "Companion computer status (heartbeat)"
+
+  # Control setpoints
+  - name: vehicle_thrust_setpoint
+    msg_type_id: 0x87
+    direction: downlink
+    rate_hz: 0
+    msg_file: VehicleThrustSetpoint.msg
+    description: "Thrust setpoint for flight control"
+
+  - name: vehicle_torque_setpoint
+    msg_type_id: 0x88
+    direction: downlink
+    rate_hz: 0
+    msg_file: VehicleTorqueSetpoint.msg
+    description: "Torque setpoint for flight control"
+
+  - name: vehicle_local_position_setpoint
+    msg_type_id: 0x89
+    direction: both
+    uplink_rate_hz: 10
+    downlink_rate_hz: 0
+    msg_file: VehicleLocalPositionSetpoint.msg
+    description: "Local position setpoint (bidirectional)"
+
+  - name: event
+    msg_type_id: 0x14
+    direction: uplink
+    rate_hz: 1
+    msg_file: Event.msg
+    description: "PX4 Events (for logging/status)"
+
+
+  # Discovery and system
+
+  - name: topic_info
+    msg_type_id: 0x13
+    direction: uplink
+    rate_hz: 0.1
+    msg_file: TopicInfo.msg
+    internal: true
+    description: "Topic metadata for discovery"
+
+
+  # Parameter management
+
+  - name: parameter_value
+    msg_type_id: 0x15
+    direction: uplink
+    rate_hz: 0
+    msg_file: ParameterValue.msg
+    internal: true
+    description: "Parameter value response"
+
+  - name: parameter_request
+    msg_type_id: 0x8C
+    direction: downlink
+    rate_hz: 0
+    msg_file: ParameterRequest.msg
+    internal: true
+    description: "Request to read a parameter"
+
+  - name: parameter_set
+    msg_type_id: 0x8D
+    direction: downlink
+    rate_hz: 0
+    msg_file: ParameterSet.msg
+    internal: true
+    description: "Request to set a parameter"

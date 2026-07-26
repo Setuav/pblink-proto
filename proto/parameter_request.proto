@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message ParameterRequest {
+  uint64 timestamp = 1;
+  string param_name = 2;
+  uint32 request_id = 3;
+}
