@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message Wind {
+    uint64 timestamp = 1;
+    float windspeed_north = 2;
+    float windspeed_east = 3;
+    float variance_north = 4;
+    float variance_east = 5;
+    float tas_innov = 6;
+    float tas_innov_var = 7;
+    float beta_innov = 8;
+    float beta_innov_var = 9;
+}

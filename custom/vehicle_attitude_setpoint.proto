@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package px4_pblink.msgs;
+
+message VehicleAttitudeSetpoint {
+    uint64 timestamp = 1;
+    float roll_body = 2;
+    float pitch_body = 3;
+    float yaw_body = 4;
+    float yaw_sp_move_rate = 5;
+    repeated float q_d = 6;
+    float thrust_body = 7;
+}
